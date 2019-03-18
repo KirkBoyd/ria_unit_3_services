@@ -1,5 +1,11 @@
 <launch>
     <!-- exercise 3_1 for moving robotic arm using services -->
-    <node pkg="unit_3_services" type="exercise_3_1.py" name="kirk_ex_3_1"  output="screen">
+    <include file="$(find iri_wam_reproduce_trajectory)/launch/start_service.launch"/>
+    <!-- this ^^^^ above ^^^^ launches start_service.launch from pkg iri_wam_reproduce_trajectory.-->
+    <!-- within start_service.launch is the "/execute_trajectory" service, which is what we want-->
+    <node   pkg="unit_3_services"
+            type="exercise_3_1.py"
+            name="kirk_ex_3_1"
+            output="screen">
     </node>
 </launch>
